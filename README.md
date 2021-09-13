@@ -122,6 +122,37 @@ ind_julian(file_name)
 ind_month(file_name)
 ```
 
+## **Visualização**
+
+``` r
+julianbase <- readr::read_csv("data/geral/julianclimat.csv")
+
+julianbase |> 
+  ggplot2::ggplot(ggplot2::aes(x=JDAY, y=P_mean))+
+  ggplot2::geom_line()+
+  ggplot2::geom_point()+
+  ggplot2::xlab("Julian Days")+
+  ggplot2::ylab("Daily mean of Precipitation (mm)")+
+  ggplot2::theme_classic()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+``` r
+list_esta <- list.files("data/individual/julian/", pattern = "csv")
+tab <- readr::read_csv(paste0("data/individual/julian/",list_esta[1]))
+
+tab |> 
+  ggplot2::ggplot(ggplot2::aes(x=JDAY, y=P_mean))+
+  ggplot2::geom_line()+
+  ggplot2::geom_point()+
+  ggplot2::xlab("Julian Days")+
+  ggplot2::ylab("Daily mean of Precipitation (mm)")+
+  ggplot2::theme_classic()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+
 ------------------------------------------------------------------------
 
 # **AGORA É SÓ CONTINUAR SEU PROJETO**
